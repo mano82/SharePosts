@@ -32,7 +32,7 @@ Change the row: `RewriteBase /shareposts/public` with the root folder of your we
     // DB Params
     define('DB_HOST','localhost');
     define('DB_USER','root');
-    define('DB_PASS','mano');
+    define('DB_PASS','your_password');
     define('DB_NAME','shareposts');
     define('DB_PREFIX', 'sp_');
 
