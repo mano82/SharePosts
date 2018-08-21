@@ -3,7 +3,7 @@
     // DB Params
     define('DB_HOST','localhost');
     define('DB_USER','root');
-    define('DB_PASS','mano');
+    define('DB_PASS','your_password');
     define('DB_NAME','shareposts');
     define('DB_PREFIX', 'sp_');
 
