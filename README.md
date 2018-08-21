@@ -9,7 +9,7 @@ It consists of:
 
 # Installation
 
-Installation is very simple and requires to change information in 2 files: `public/.htacess` and `app/config/config.php`
+Installation is very simple and requires to change information in 2 files: `public/.htaccess` and `app/config/config.php`
 
 ## public/.htaccess
 
