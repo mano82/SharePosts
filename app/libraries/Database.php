@@ -16,10 +16,6 @@
         private $stmt; // database PDO statement
         private $error;
 
-        public $tblpfx = 'sp_';
-
-        
-
         public function __construct(){
             // Set DSN 
 

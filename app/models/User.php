@@ -9,7 +9,7 @@
 
         // Register user
         public function register($data){
-            $this -> db -> query('INSERT INTO  '. $this -> db->tblpfx .'users (name, email, password) VALUES (:name, :email, :password)');
+            $this -> db -> query('INSERT INTO  '. DB_PREFIX .'users (name, email, password) VALUES (:name, :email, :password)');
             // Bind values
             $this -> db -> bind (':name', $data['name']);
             $this -> db -> bind (':email', $data['email']);
@@ -25,7 +25,7 @@
 
         // Login User
         public function login($email, $password){
-            $this -> db -> query('SELECT * FROM  '. $this -> db->tblpfx .'users WHERE email = :email');
+            $this -> db -> query('SELECT * FROM  '. DB_PREFIX .'users WHERE email = :email');
             $this -> db -> bind (':email', $email);
 
             $row = $this -> db -> single();
@@ -40,7 +40,7 @@
 
         // Find user by email
         public function findUserByEmail($email){
-            $this -> db -> query('SELECT * FROM  '. $this -> db->tblpfx .'users WHERE  email = :email');
+            $this -> db -> query('SELECT * FROM  '. DB_PREFIX .'users WHERE  email = :email');
             // Bind values
             $this -> db -> bind('email', $email);
 
@@ -56,7 +56,7 @@
 
         // Find user by ID
         public function findUserById($id){
-            $this -> db -> query('SELECT * FROM  '. $this -> db->tblpfx .'users WHERE  id = :id');
+            $this -> db -> query('SELECT * FROM  '. DB_PREFIX .'users WHERE  id = :id');
             // Bind values
             $this -> db -> bind('id', $id);
 

@@ -5,6 +5,7 @@
     define('DB_USER','root');
     define('DB_PASS','mano');
     define('DB_NAME','shareposts');
+    define('DB_PREFIX', 'sp_');
 
     // App Root
     define ('APPROOT', dirname(dirname(__FILE__)));

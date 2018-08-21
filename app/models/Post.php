@@ -8,15 +8,15 @@
 
         public function getPosts(){
             $this -> db -> query('SELECT *, 
-                                   SUBSTRING('. $this -> db->tblpfx .'posts.body, 1, 400) AS abstract, 
-                                   '. $this -> db->tblpfx .'posts.id AS postId,
-                                   '. $this -> db->tblpfx .'users.id AS userId,
-                                   '. $this -> db->tblpfx .'posts.created_at AS postCreated,
-                                   '. $this -> db->tblpfx .'users.created_at AS userCreated                                   
-                                  FROM  '. $this -> db->tblpfx .'posts
-                                  INNER JOIN  '. $this -> db->tblpfx .'users
-                                  ON  '. $this -> db->tblpfx .'posts.user_id = '. $this -> db->tblpfx .'users.id
-                                  ORDER BY  '. $this -> db->tblpfx .'posts.created_at DESC
+                                   SUBSTRING('. DB_PREFIX .'posts.body, 1, 400) AS abstract, 
+                                   '. DB_PREFIX .'posts.id AS postId,
+                                   '. DB_PREFIX .'users.id AS userId,
+                                   '. DB_PREFIX .'posts.created_at AS postCreated,
+                                   '. DB_PREFIX .'users.created_at AS userCreated                                   
+                                  FROM  '. DB_PREFIX .'posts
+                                  INNER JOIN  '. DB_PREFIX .'users
+                                  ON  '. DB_PREFIX .'posts.user_id = '. DB_PREFIX .'users.id
+                                  ORDER BY  '. DB_PREFIX .'posts.created_at DESC
                                 ');
 
             $results = $this -> db -> resultSet();
@@ -25,7 +25,7 @@
         }
 
         public function addPost($data){
-            $this -> db -> query('INSERT INTO  '. $this -> db->tblpfx .'posts (user_id, title, body) VALUES (:user_id, :title, :body)');
+            $this -> db -> query('INSERT INTO  '. DB_PREFIX .'posts (user_id, title, body) VALUES (:user_id, :title, :body)');
             // Bind values
             $this -> db -> bind (':user_id', $data['user_id']);
             $this -> db -> bind (':title', $data['title']);
@@ -40,7 +40,7 @@
         }
 
         public function updatePost($data){
-            $this -> db -> query('UPDATE  '. $this -> db->tblpfx .'posts SET title = :title, body = :body WHERE id = :id');
+            $this -> db -> query('UPDATE  '. DB_PREFIX .'posts SET title = :title, body = :body WHERE id = :id');
             // Bind values
             $this -> db -> bind (':id', $data['id']);
             $this -> db -> bind (':title', $data['title']);
@@ -55,7 +55,7 @@
         }
 
         public function getPostById($id){
-            $this -> db -> query('SELECT * FROM '. $this -> db->tblpfx .'posts WHERE id = :id');
+            $this -> db -> query('SELECT * FROM '. DB_PREFIX .'posts WHERE id = :id');
             // Bind values
             $this -> db -> bind(':id', $id);
 
@@ -66,7 +66,7 @@
         }
 
         public function deletePostById($id){
-            $this -> db -> query('DELETE FROM  '. $this -> db->tblpfx .'posts WHERE id = :id');
+            $this -> db -> query('DELETE FROM  '. DB_PREFIX .'posts WHERE id = :id');
             // Bind values
             $this -> db -> bind(':id', $id);
 
