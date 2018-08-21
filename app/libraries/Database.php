@@ -11,10 +11,12 @@
         private $user = DB_USER;
         private $pass = DB_PASS;
         private $dbname = DB_NAME;
-
+        
         private $dbh; // database handler
         private $stmt; // database PDO statement
         private $error;
+
+        public $tblpfx = 'sp_';
 
         
 
