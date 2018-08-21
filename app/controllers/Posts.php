@@ -24,8 +24,8 @@
         public function add(){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Sanitize the post request
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                
                 $data = [
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
@@ -72,8 +72,8 @@
         public function edit($id){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Sanitize the post request
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                
                 $data = [
                     'id' => $id,
                     'title' => trim($_POST['title']),
